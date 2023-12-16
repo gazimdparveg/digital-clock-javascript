@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .wach{
+            width: 100%;
+           height: 600px;
+            display: block;
+            background-color: black;
+        }
+        .ce{
+    width: 90%;
+    height: auto;
+    margin: auto; 
+    color: #17D4FE;;
+    display: block;
+    text-align: center;
+    padding-top: 167px;
+   
+    letter-spacing: 7px;
+        }
+        .hour{
+            font-size: 170px;
+            font-family:"Russo One" ;
+        }
+        .date{
+            font-size: 100px;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            
+        }
+    </style>
+    <div class="wach">
+        <div class="ce">
+   <span class="hour"> : </span>
+  <br>
+   <span class="date">  </span>
+
+    </div>
+</div>
+    <script>
+        function showTime(){
+       var mydate = new Date();
+       var hour = mydate.getHours();
+       var mus = mydate.getMinutes();
+       var se = mydate.getSeconds();
+       var sas = "AM";
+       var cday = mydate.getDay();
+       var mou = mydate.getMonth();
+       var d = mydate.getDate();
+
+     hour = (hour < 10) ? "0" + hour : hour;
+     mus = (mus < 10) ? "0" + mus : mus;
+     se = (se < 10) ? "0" + se : se;
+     d = (d < 10) ? "0" + d : d;
+
+     cday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+     moun = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+ 
+       if(hour > 12){
+        hour = hour-12;
+        sas = "PM"
+    
+    }
+    if(hour == 0){
+        hour = 12;
+       }
+
+      var carant = document.querySelector(".hour").innerHTML= hour + ":" + mus + ":" + se +":" + sas;
+      var carranDay = document.querySelector(".date").innerHTML= cday[mydate.getDay()] + ":" + moun[mydate.getMonth()] + ":" + d;
+       
+      setTimeout(showTime, 1000);
+    }
+
+    showTime();
+    </script>
+</body>
+</html>
